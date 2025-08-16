@@ -1,0 +1,177 @@
+/* Reset cơ bản cho toàn trang */
+* {
+  padding: 0; /* Xóa khoảng cách bên trong mặc định của mọi phần tử */
+  margin: 0; /* Xóa khoảng cách bên ngoài mặc định của mọi phần tử */
+  box-sizing: border-box; /* Tính cả padding + border vào width/height phần tử */
+  list-style-type: none; /* Bỏ ký hiệu đầu dòng của ul/ol (chấm, số, …) */
+  font-family: "Roboto", sans-serif; /* Đặt font chữ mặc định cho toàn trang */
+}
+
+/* Liên kết (thẻ a) */
+a {
+  color: rgb(0, 110, 255); /* Màu chữ xanh cho link */
+}
+
+/* Nền toàn trang */
+body {
+  /* Chồng 2 lớp nền: lớp 1 là gradient tối, lớp 2 là ảnh; gradient ở trên ảnh */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.162)),
+    url(assets/login-bg-3.jpg);
+  background-repeat: no-repeat; /* Không lặp lại ảnh nền */
+  background-size: cover; /* Ảnh nền phủ kín khung nhìn, giữ tỉ lệ; có thể bị crop */
+  height: 100vh; /* Chiều cao bằng 100% chiều cao khung nhìn (viewport height) */
+}
+
+/* Khung tổng chứa 2 cột */
+.container {
+  width: 60%; /* Container chiếm 60% bề ngang trang */
+  margin: 0px auto; /* Căn giữa container theo chiều ngang (trên/dưới 0, trái/phải auto) */
+  display: flex; /* Dùng flexbox để xếp các cột con nằm ngang */
+  margin-top: 50px; /* Đẩy container xuống dưới 50px so với mép trên */
+}
+
+/* Hai cột trái/phải có chung style */
+.box-left,
+.box-right {
+  width: 50%; /* Mỗi cột chiếm 50% chiều rộng của .container */
+  text-align: center; /* Canh giữa nội dung dạng văn bản/inline bên trong */
+}
+
+/* Cột bên trái */
+.box-left {
+  color: white; /* Màu chữ trắng (ghi đè màu mặc định) */
+  align-content: center; /* Căn nội dung theo trục chéo khi có nhiều hàng flex; 
+                               chỉ hiệu lực khi .box-left là flex container và có wrap */
+}
+
+/* Logo */
+.logo-oxyy {
+  width: 16%; /* Logo rộng 16% so với chiều rộng khối chứa */
+  object-fit: cover; /* Ảnh lấp đầy khung giữ tỉ lệ, phần thừa bị cắt (không méo ảnh) */
+}
+
+/* Dòng chào */
+.text_1 {
+  font-size: 20px; /* Cỡ chữ 20px */
+  padding: 20px 0px; /* Đệm trên/dưới 20px, trái/phải 0 */
+}
+
+/* Ảnh QR */
+.qr-code {
+  margin: 20px 0; /* Lề trên/dưới 20px, trái/phải 0 */
+}
+
+/* Mô tả dưới QR */
+.text_2 {
+  padding: 20px; /* Đệm đều bốn phía 20px */
+  width: 80%; /* Bề rộng khối bằng 80% khối chứa (để nội dung gọn) */
+  margin: 0 auto; /* Căn giữa ngang khối .text_2 */
+}
+
+/* Cột bên phải (form) */
+.box-right {
+  background-color: white; /* Nền trắng cho khối form */
+  padding: 40px; /* Đệm bên trong 40px */
+}
+
+/* Dòng “New to Oxyy?” */
+.create {
+  font-size: 16px; /* Cỡ chữ 16px */
+  padding: 20px 0; /* Đệm trên/dưới 20px */
+  color: rgb(95, 95, 95); /* Màu xám cho chữ */
+}
+
+/* Nhóm input chung */
+.input-gr {
+  padding: 10px 0; /* Đệm trên/dưới 10px */
+  text-align: start; /* Canh chữ theo đầu dòng logic (LTR = trái, RTL = phải) */
+}
+
+/* Utils: display block cho label */
+.dblock {
+  display: block; /* Hiển thị dạng khối, tự xuống dòng */
+}
+
+/* Utils: đậm chữ */
+.fwbold {
+  font-weight: 600; /* Độ đậm semi-bold */
+}
+
+/* Utils: margin dưới */
+.mb {
+  margin-bottom: 10px; /* Lề dưới 10px, tách label và input */
+}
+
+/* Ô nhập email & mật khẩu */
+input[type="email"],
+input[type="password"] {
+  padding: 10px; /* Đệm bên trong 10px cho dễ gõ */
+  width: 100%; /* Rộng 100% khối chứa (full dòng) */
+  outline: none; /* Bỏ viền highlight mặc định khi focus (cần cân nhắc accessibility) */
+  border-color: rgb(
+    177,
+    177,
+    177
+  ); /* Màu viền (hiệu lực khi có border-style/width); 
+    nếu muốn thấy viền rõ, dùng: border: 1px solid rgb(177,177,177); */
+}
+
+/* Utils: padding dọc */
+.pd {
+  padding: 10px 0px; /* Đệm trên/dưới 10px */
+}
+
+/* Hàng chứa checkbox “Keep me signed in” */
+.check-btn {
+  display: flex; /* Dùng flex để input và label nằm cùng hàng */
+  gap: 6px; /* Khoảng cách giữa checkbox và chữ là 6px */
+  font-size: 14px; /* Cỡ chữ 14px */
+  color: rgb(75, 75, 75); /* Màu chữ xám đậm */
+  font-weight: 600; /* Chữ hơi đậm để dễ nhìn */
+}
+
+/* Nút đăng nhập */
+.btn {
+  width: 100%; /* Nút rộng 100% (full dòng) */
+  color: white; /* Màu chữ trắng */
+  background-color: black; /* Nền đen */
+  font-weight: 600; /* Chữ đậm hơn */
+  padding: 10px; /* Đệm 10px cho nút */
+}
+
+/* Hàng link đăng nhập MXH */
+.link-list {
+  display: flex; /* Các link xếp ngang */
+  justify-content: space-between; /* Giãn đều, cách nhau tối đa */
+}
+
+/* Từng link MXH */
+.link {
+  display: inline-block; /* Hiển thị như khối nội tuyến (set được width/height) */
+  text-decoration: none; /* Bỏ gạch chân mặc định của link */
+  width: 30%; /* Mỗi link chiếm 30% chiều ngang .link-list */
+  padding: 10px 0; /* Đệm trên/dưới 10px */
+}
+
+/* Link MXH thứ 1 (Facebook) */
+.link:nth-child(1) {
+  border: 2px solid rgb(0, 89, 255); /* Viền xanh đậm 2px */
+  color: rgb(0, 89, 255); /* Màu chữ trùng màu viền */
+}
+
+/* Link MXH thứ 2 (Google) */
+.link:nth-child(2) {
+  border: 2px solid rgb(255, 102, 0); /* Viền cam 2px */
+  color: rgb(255, 102, 0); /* Màu chữ cam */
+}
+
+/* Link MXH thứ 3 (Twitter) */
+.link:nth-child(3) {
+  border: 2px solid rgb(0, 204, 255); /* Viền xanh nhạt 2px */
+  color: rgb(0, 204, 255); /* Màu chữ xanh nhạt */
+}
+
+/* Đoạn text trợ giúp cuối form */
+.text {
+  color: rgb(95, 95, 95); /* Màu xám cho chữ */
+}
